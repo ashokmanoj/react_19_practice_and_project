@@ -5,6 +5,8 @@ import Header from './components/Header'
 import JSXRules from './components/JSXRules'
 import MainContent from './components/MainContent'
 import UserList from './components/UserList'
+import UserStatus from './components/UserStatus'
+import Weather from './components/Weather'
 import WelcomeMsg from './components/WelcomeMsg'
 
 function App() {
@@ -24,7 +26,9 @@ function App() {
     //     <li key={Math.random()}>{listItem}</li>
     //   ))}
     // </main>
-    <UserList   name="John Doe" age={30} email="M2K6y@example.com"/>
+    // <UserList   name="John Doe" age={30} email="M2K6y@example.com"/>
+    <UserStatus loggendIn={true} isAdmin={true} />
+    // <Weather  isSnowing={true} />
   )
 }
 
