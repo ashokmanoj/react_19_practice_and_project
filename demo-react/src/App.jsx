@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+// import { useState } from 'react'
 import './App.css'
 import Footer from './components/Footer'
 import Header from './components/Header'
@@ -9,21 +9,24 @@ import UserList from './components/UserList'
 import UserStatus from './components/UserStatus'
 import Weather from './components/Weather'
 import WelcomeMsg from './components/WelcomeMsg'
+import Todo from './components/Todo'
 
 function App() {
  
-  const [friends, setFriends] = useState(['manoj','manu'])
+  // const [friends, setFriends] = useState(['manoj','manu'])
 
   return (
 
-    <div>
-      {friends.map((friend) => (
-        <div key={Math.random()}>{friend}</div>
-      ))}
-      <button onClick={() => setFriends([...friends, 'new friend'])}>Add Friend</button>
-      <button onClick={() => setFriends(friends.filter((friend) => friend !== 'new friend'))}>Remove Friend</button>
-      <button onClick={() => setFriends(friends.map((friend) => friend === 'manoj' ? 'manu' : friend))}>Change Friend</button>
-    </div>
+    <Todo/>
+
+    // <div>
+    //   {friends.map((friend) => (
+    //     <div key={Math.random()}>{friend}</div>
+    //   ))}
+    //   <button onClick={() => setFriends([...friends, 'new friend'])}>Add Friend</button>
+    //   <button onClick={() => setFriends(friends.filter((friend) => friend !== 'new friend'))}>Remove Friend</button>
+    //   <button onClick={() => setFriends(friends.map((friend) => friend === 'manoj' ? 'manu' : friend))}>Change Friend</button>
+    // </div>
 
 
     // <>
