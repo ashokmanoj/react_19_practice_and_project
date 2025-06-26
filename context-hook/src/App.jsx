@@ -1,13 +1,14 @@
+import { UserProvider } from "./UserContext";
+import UserProfile from "./components/UserProfile";
+import UpdateUser from "./components/UpdateUser";
 
-import './App.css'
-
-function App() {
-
+const App = () => {
   return (
-    <>
-      
-    </>
-  )
-}
+    <UserProvider>
+      <UserProfile />
+      <UpdateUser />
+    </UserProvider>
+  );
+};
 
-export default App
+export default App;
