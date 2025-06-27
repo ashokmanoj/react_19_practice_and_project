@@ -1,14 +1,20 @@
-import { UserProvider } from "./UserContext";
-import UserProfile from "./components/UserProfile";
-import UpdateUser from "./components/UpdateUser";
+import './App.css'
+import useFetch from './hooks/useFetch'
 
-const App = () => {
+function App() {
+  const [data] = useFetch("https://jsonplaceholder.typicode.com/todos");
+  console.log(data);
+
   return (
-    <UserProvider>
-      <UserProfile />
-      <UpdateUser />
-    </UserProvider>
-  );
-};
+    <>
+      <h1>This custom hook</h1>
+      {
+        data && data.map((item) => (
+          <li key={item.id}>{item.title}</li>
+        ))
+      }
+    </>
+  )
+}
 
-export default App;
+export default App
