@@ -1,10 +1,13 @@
 // import React from 'react'
 
-import Form from "./components/Form"
+import Counter from "./components/Counter"
+// import Form from "./components/Form"
+
 
 const App = () => {
   return (
-    <Form/>
+    // <Form/>
+    <Counter/>
   )
 }
 
