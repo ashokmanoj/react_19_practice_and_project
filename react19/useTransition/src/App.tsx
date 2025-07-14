@@ -1,34 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {useState, useTransition} from 'react'
+import Home from './components/Home'
+import Posts from './components/Posts'
+import Contact from './components/Contact'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
 
+  const [actuiveTap, setActiveTap] = useState('home')
+  const [ispending, startTransition] = useTransition()
+
+  const handleTabChange = (tab: string) => {
+    startTransition(() => {
+      setActiveTap(tab)
+    })
+  }
+  const renderPage = () => {
+    switch(actuiveTap) {
+      case 'home':
+        return <Home/>
+      case 'post':
+        return <Posts/>
+      case 'contact':
+        return <Contact/>
+      default:
+        return <Home/>
+    }
+  }
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <button onClick={() => handleTabChange('home')}>Home</button>
+      <button onClick={() => handleTabChange('post')}>Posts</button>
+      <button onClick={() => handleTabChange('contact')}>Contact</button>
+      {ispending && <p>Loading...</p>}
+      {renderPage()}
+    </div>
   )
 }
 
