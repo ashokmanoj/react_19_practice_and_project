@@ -31,7 +31,7 @@ const App = () => {
       <button onClick={() => handleTabChange('post')}>Posts</button>
       <button onClick={() => handleTabChange('contact')}>Contact</button>
       {ispending && <p>Loading...</p>}
-      {renderPage()}
+      {renderPage()}   // {actuiveTap === 'home' && <Home/>}
     </div>
   )
 }
