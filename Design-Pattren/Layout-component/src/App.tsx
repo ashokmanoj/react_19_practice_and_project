@@ -1,15 +1,15 @@
-import Left from "./components/left"
-import Right from "./components/Rght"
-import SplitScreen from "./components/splitscreen"
+import React from "react";
+import Left from "./components/Left";
+import Right from "./components/Rght";
+import SplitScreen from "./components/SplitScreen";
 
-
-const App = () => {
+const App: React.FC = () => {
   return (
-   <SplitScreen leftWeight={50} rightWeight={80}>
-    <Right />
-    <Left />
-   </SplitScreen>
-  )
-}
+    <SplitScreen leftWeight={1} rightWeight={2}>
+      <Left />
+      <Right />
+    </SplitScreen>
+  );
+};
 
-export default App
+export default App;
