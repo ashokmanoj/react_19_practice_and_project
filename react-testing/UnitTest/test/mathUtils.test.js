@@ -1,40 +1,34 @@
-import { describe, it, expect} from 'vitest';
-import { add, subtract, multiply, divide } from '../src/mathUtils';
+import { describe, it, expect } from "vitest";
+import { gcd, fibonacci, factorial } from "../src/mathUtils";
 
-describe('mathUtils', () => {
-    describe('add', () => {
-        it('should return the sum of two numbers', () => {
-            expect(add(2, 3)).toBe(5);
-            expect(add(-2, -3)).toBe(-5);
-            expect(add(-2, 3)).toBe(1);
-        });
-    });
+describe("gcd", () => {
+  it("should return the greatest common divisor of two numbers", () => {
+    expect(gcd(12, 18)).toBe(6);
+    expect(gcd(18, 12)).toBe(6);
+  });
+});
 
-    describe('subtract', () => {
-        it('should return the difference of two numbers', () => {
-            expect(subtract(5, 3)).toBe(2);
-            expect(subtract(-2, -3)).toBe(1);
-            expect(subtract(-2, 3)).toBe(-5);
-        });
-    });
+describe("factorial", () => {
+  it("should return the factorial of a number", () => {
+    expect(factorial(5)).toBe(120);
+    expect(factorial(0)).toBe(1);
+  });
 
-    describe('multiply', () => {
-        it('should return the product of two numbers', () => {
-            expect(multiply(2, 3)).toBe(6);
-            expect(multiply(-2, -3)).toBe(6);
-            expect(multiply(-2, 3)).toBe(-6);
-        });
-    });
+  it("should throw an error for negative numbers", () => {
+    expect(() => factorial(-1)).toThrow(
+      "Negative numbers do not have a factorial."
+    );
+  });
+});
 
-    describe('divide', () => {
-        it('should return the quotient of two numbers', () => {
-            expect(divide(6, 3)).toBe(2);
-            expect(divide(-6, -3)).toBe(2);
-            expect(divide(-6, 3)).toBe(-2);
-        });
+describe("fibonacci", () => {
+  it("should return the nth Fibonacci number", () => {
+    expect(fibonacci(7)).toBe(13);
+    expect(fibonacci(0)).toBe(0);
+    expect(fibonacci(1)).toBe(1);
+  });
 
-        it('should throw an error when dividing by zero', () => {
-            expect(() => divide(6, 0)).toThrow("Cannot divide by zero");
-        });
-    });
+  it("should throw an error for negative numbers", () => {
+    expect(() => fibonacci(-1)).toThrow("Negative numbers are not allowed.");
+  });
 });
