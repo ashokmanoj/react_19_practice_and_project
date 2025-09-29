@@ -1,71 +1,91 @@
-# React + TypeScript + Vite
+useTransition (React Hook)
+📖 Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+useTransition is a hook introduced in React 18 that helps manage non-urgent updates.
+It keeps your app snappy and responsive by letting React prioritize urgent updates (like typing or clicks) while deferring expensive operations (like filtering a large list or rendering heavy UI) in the background.
 
-Currently, two official plugins are available:
+🚀 Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+useTransition is built into React 18+. Make sure you’re on React 18 or later:
 
-## Expanding the ESLint configuration
+npm install react react-dom
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+🛠️ Usage Example
+import { useState, useTransition } from "react";
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+function Search() {
+  const [isPending, startTransition] = useTransition();
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState([]);
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+  function handleChange(e) {
+    const value = e.target.value;
+    setQuery(value); // urgent update
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+    // non-urgent update wrapped in transition
+    startTransition(() => {
+      const filtered = expensiveFilter(value);
+      setResults(filtered);
+    });
+  }
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+  return (
+    <div>
+      <input value={query} onChange={handleChange} />
+      {isPending && <p>Loading...</p>}
+      <ul>
+        {results.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+function expensiveFilter(value) {
+  // simulate expensive computation
+  const items = ["apple", "banana", "orange", "grape", "pear"];
+  return items.filter((item) => item.includes(value.toLowerCase()));
+}
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+📦 API Reference
+const [isPending, startTransition] = useTransition();
 
-## If you are like this follow me for more info
+isPending → boolean
+
+true while the transition is running.
+
+Use this to show loading indicators or disable UI controls.
+
+startTransition(callback) → void
+
+Marks the updates inside callback as non-urgent.
+
+Urgent updates (like text input) are applied first, then background updates run.
+
+✅ When to Use
+
+Filtering/searching large lists
+
+Complex UI updates triggered by input
+
+Rendering heavy components that don’t need to block typing or clicks
+
+❌ Avoid Using For
+
+Direct user inputs (e.g., typing text)
+
+Critical updates (form submission, authentication, navigation)
+
+🔍 Example: Before vs After
+❌ Without useTransition
+
+Typing feels laggy if filtering is slow.
+
+✅ With useTransition
+
+Typing stays smooth and responsive, while results update in the background.
+
+📚 Resources
+
+React Docs – useTransition
