@@ -5,21 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .Internal{
-            color: brown;
-            text-align: center;
-            background-color: yellow;
+        .relative {
+            position: relative;
+          
+        }
+
+        .container{
+            border: 2px solid black;
+            padding: 20px;
+            margin: 20px;
+        }
+        .parent{
+
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            background-color: red;
         }
         </style>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div style="color: aqua;">This is first day to css learnig</div>
-    <div class="Internal"><h1>
-        Internal css
-    </h1></div>
-    <div class="external"><h1>
-        External css
-    </h1></div>
+    <!-- <div class="container">
+        <div class="parent">
+            <div class="relative">
+                <h1>hello</h1>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="abs">
+        <h2 class="absalute">
+            this is absolute positioned element
+        </h2>
+    </div>
 </body>
 </html>

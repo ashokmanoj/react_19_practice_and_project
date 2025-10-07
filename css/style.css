@@ -3,3 +3,14 @@
     text-align: center;
     background-color: lightgrey;
 }
+
+.abs{
+    align-items: center;
+    text-align: center;
+}
+
+.absalute{
+    position: absolute;
+    
+    background-color: orange;
+}
