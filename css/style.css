@@ -14,3 +14,28 @@
     
     background-color: orange;
 }
+
+.relative{
+    position: relative;
+    background-color: lightblue;
+}
+
+.fixed{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: lightgreen;
+    text-align: center;
+}
+
+header {
+  position: sticky;
+  top: 0; /* stick to top when scrolling */
+  background: gold;
+  padding: 10px;
+}
+
+psedo::after{
+    content: "This is after pseudo element";
+    color: red;
+}
