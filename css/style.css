@@ -1,4 +1,4 @@
-.external{
+/* .external{
     color: green;
     text-align: center;
     background-color: lightgrey;
@@ -31,11 +31,19 @@
 header {
   position: sticky;
   top: 0; /* stick to top when scrolling */
-  background: gold;
+  /* background: gold;
   padding: 10px;
-}
+} */
 
-psedo::after{
+/* psedo::after{
     content: "This is after pseudo element";
     color: red;
+}  */
+
+
+a{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: x-large;
+    font-weight: bold;
 }
