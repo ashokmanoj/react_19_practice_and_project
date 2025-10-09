@@ -46,4 +46,10 @@ a{
     text-transform: uppercase;
     font-size: x-large;
     font-weight: bold;
+    width: 100%;
 }
+
+img{
+    max-width: 800px;
+    width: 100%;   
+}   
