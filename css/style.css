@@ -53,10 +53,24 @@ header {
     max-width: 800px;
     width: 100%;   
 }    */
-
+/* 
 h1{
     color: blue;
     text-align: center;
     font-size: 2em;
     font-weight: 10px;
+} */
+
+.perent{
+    width: 13px;
+}
+
+img{
+    width: 2rem;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
