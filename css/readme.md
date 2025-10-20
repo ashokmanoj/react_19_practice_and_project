@@ -5,4 +5,6 @@ px - pixels {boder radius, Border, Letter spacing, logos and icons, max-width sh
 ## Relative units - {size is based on the size of the parent} ----> %, em, rem, vh, vw
 
 
-Learnt about rem in css rem is belong to give a size to the page it occupay the 2 X px of the html px or if any parent px
+Learnt about rem in css rem is belong to give a size to the page it occupay the 2 X px of the html px or if any parent px {it based on root html defalut font size(defalt 16px)}
+
+But in em in based on perent font-size {size may be very on perent size}

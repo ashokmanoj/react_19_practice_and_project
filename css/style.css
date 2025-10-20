@@ -31,7 +31,7 @@
 header {
   position: sticky;
   top: 0; /* stick to top when scrolling */
-  /* background: gold;
+/* background: gold;
   padding: 10px;
 } */
 
@@ -39,7 +39,6 @@ header {
     content: "This is after pseudo element";
     color: red;
 }  */
-
 
 /* a{
     text-decoration: none;
@@ -61,16 +60,14 @@ h1{
     font-weight: 10px;
 } */
 
-.perent{
-    width: 13px;
+a {
+  font-size: 5em;
 }
 
-img{
-    width: 2rem;
+h1 {
+  font-size: 2em;
 }
 
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+.perent1 {
+  font-size: 20px;
 }
