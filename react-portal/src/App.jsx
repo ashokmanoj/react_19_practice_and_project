@@ -4,6 +4,7 @@
 //  👉  & some data in our component changed.
 
 import { useEffect, useState } from "react";
+import CopyInput from "./components/CopyInput";
 
 // 1. Without the empty array
 // const App = () => {
@@ -115,6 +116,8 @@ const App = () => {
           <li key={Math.random()}>{item.title}</li>
         ))}
       </ul>
+      <CopyInput />
+      <h2>Check the console for useEffect logs</h2>
     </>
   );
 };
